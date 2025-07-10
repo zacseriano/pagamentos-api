@@ -1,8 +1,8 @@
-package br.ufpi.pagamentos.domain.model;
+package br.ufpi.pagamentos.domain.model.formaPagamento;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import br.ufpi.pagamentos.domain.enuns.SituacaoEnum;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,12 +11,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class Cartao extends GenericModel{
+public class Cartao extends FormaPagamento {
+	private BigDecimal limite;
 	private String numero;
 	private String codigoVerificacao;
 	private LocalDate validade;
-	private SituacaoEnum situacao;
 }

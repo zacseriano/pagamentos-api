@@ -1,6 +1,10 @@
-package br.ufpi.pagamentos.domain.model;
+package br.ufpi.pagamentos.domain.model.pagamento;
+
+import java.math.BigDecimal;
 
 import br.ufpi.pagamentos.domain.enuns.MetodoPagamentoEnum;
+import br.ufpi.pagamentos.domain.model.GenericModel;
+import br.ufpi.pagamentos.domain.model.formaPagamento.FormaPagamento;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -13,9 +17,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Pagamento extends GenericModel{
+public class Pagamento extends GenericModel {
 	private Long idCompra;
+	private BigDecimal valor;
 	private MetodoPagamentoEnum metodoPagamento;
 	@ManyToOne
-	private Conta conta;
+	private FormaPagamento formaPagamento;
 }
